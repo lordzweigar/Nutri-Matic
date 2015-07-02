@@ -1,0 +1,66 @@
+// Draft of code to be  used in the tea machine
+
+// Analog Inputs
+int TempAdj = 18; // This is connected to the TempAdj Pot
+int VarTempAdj; // Current Temp Setting (NOT THE ACTUAL TEMP)
+
+// Not Really Analog
+// THIS SUBSECTION IS SET FOR THE DS18B20 SENSOR
+int ReadTemp = 7; // Temperature read from the sensor
+int VarReadTemp; // Variable for ReadTemp
+
+// Digital Inputs
+int Small = 8; // the smallest cup size
+int VarSmall; 
+
+int Med = 9; // Medium cup size
+int VarMed; 
+
+int Large = 10; // Large cup size
+int VarLarge;
+
+int FlowRate = 6; // The output from the flow rate measuring thing
+int VarFlowRate; // 1925 pulses per litre with 1.2mm nozzle
+
+void setup () {
+  Serial.begin(9600);
+  // Analog Assignment Section
+
+
+  // Digital Assignment Section
+  pinMode(Small, INPUT);
+  pinMode(Med, INPUT);
+  PinMode(Large, INPUT);
+
+  
+}
+
+void loop() {
+  // ### Analog Input Section ###
+
+  VarTempAdj = analogRead(TempAjd);
+  Serial.println(VarTempAdj);
+
+  // Read Current Temperature
+  VarReadTemp = analogRead(ReadTemp);
+  Serial.println(VarReadTemp);
+
+  // ### Digital Input Section ###
+
+
+  VarSmall = digitalRead(Small); // Pin 8
+  Serial.println(VarSmall);
+
+  VarMed = digitalRead(Med); // Pin 9
+  Serial.println(VarMed);
+  
+  Varlarge = digitalRead(Large); // Pin 10
+  Serial.println(VarLarge);
+
+  // End Preliminary Setup  
+
+
+  
+
+}
+
